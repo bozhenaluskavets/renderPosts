@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div class="content">
+            <h1 class="pageTitle">Blog</h1>
+            <div id="form">
+                <p>Title</p>
+                <input type="text" id="postTitle">
+                <p>Content</p>
+                <textarea name="content" id="postContent" cols="60" rows="5"></textarea>
+                <button class="btnPrimary" id="createPostBtn" type="submit" disabled>Create post</button>
+            </div>
+            <div class="posts" id="posts"></div>
+        </div>
+    </div>
+    <script src="scripts/form.js"></script>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/posts.js"></script>
+    <script src="scripts/comments.js"></script>
+</body>
+</html>

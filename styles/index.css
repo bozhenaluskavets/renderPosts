@@ -1,0 +1,83 @@
+.pageTitle {
+    font: 600 60px 'Caveat';
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+
+#form p {
+    font: 400 30px 'Caveat';
+}
+
+#postTitle, #postContent {
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 8px;
+    margin-bottom: 10px;
+    font: 600 25px 'Caveat';
+    transition: 0.3s;
+    background-color: rgba(255, 255, 255, 0.795);
+} 
+
+#postTitle:focus, #postContent:focus {
+    box-shadow: rgba(255, 255, 255, 0.5) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.post {
+    border-radius: 5px;
+    margin-bottom: 35px;
+    background-color: rgba(155, 177, 112, 0.285);
+    box-shadow: rgba(255, 255, 255, 0.5) 0px 2px 4px 0px, rgba(255, 255, 255, 0.5) 0px 2px 16px 0px;
+    position: relative;
+    padding-bottom: 54px;
+}
+
+.postTitle {
+    font: 600 45px 'Caveat';
+    padding: 15px 10px 5px 10px;
+}
+
+.postContent {
+    font: 600 25px 'Caveat';
+    padding: 10px;
+}
+
+.commentContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 5px 0;
+    width: 40%;
+    display: none;
+}
+
+.commentInput {
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 8px;
+    margin-bottom: 10px;
+    font: 600 25px 'Caveat';
+    transition: 0.3s;
+    background-color: rgba(255, 255, 255, 0.795);
+    width: 100%;
+}
+
+.commentInput:focus {
+    box-shadow: rgba(255, 255, 255, 0.5) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment {
+    color: red;
+}
