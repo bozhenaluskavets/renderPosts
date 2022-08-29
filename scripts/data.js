@@ -1,3 +1,7 @@
+const idGenerator = () => {
+    return new Date().getTime().toString();
+}
+
 const dataHandler = () => {
     let LS = null;
 
@@ -8,41 +12,24 @@ const dataHandler = () => {
     }
 
     const createPost = (title, content) => {
-        LS.posts.push({title, content});
+        const id = idGenerator();
+        LS.posts.push({title, content, id, comments: []});
         localStorage.setItem('DB', JSON.stringify(LS));
 
-        renderP.renderPost(title, content);
+        renderP.renderPost(title, content, id, []);
+    }
+
+    const createComment = (postId, comment) => {
+        const post = LS.posts.find(item => item.id === postId);
+        post.comments.push(comment);
+        localStorage.setItem('DB', JSON.stringify(LS));
     }
 
     const getExistsPosts = () => {
         return LS.posts;
     }
 
-    return { createPost, getExistsPosts }
-}
-
-const commentsDB = () => {
-    let LS = null;
-
-    if (localStorage.getItem('comDB')) {
-        LS = JSON.parse(localStorage.getItem('comDB'));
-    } else {
-        LS = {comments: []};
-    }
-
-    const createComment = (commentInput) => {
-        LS.comments.push({commentInput});
-        localStorage.setItem('comDB', JSON.stringify(LS));
-
-        renderP.renderComments(commentInput.value);
-    }
-
-    const getExistsComments = () => {
-        return LS.comments;
-    }
-
-    return { createComment, getExistsComments }
+    return { createPost, createComment, getExistsPosts };
 }
 
 const DB = dataHandler();
-const comDB = commentsDB();

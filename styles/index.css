@@ -53,7 +53,7 @@
     display: flex;
     flex-direction: column;
     margin: 50px 5px 0;
-    width: 40%;
+    width: 55%;
     display: none;
 }
 
@@ -76,8 +76,15 @@
 .comments {
     display: flex;
     flex-direction: column;
+    margin-left: 5px;
 }
 
 .comment {
-    color: red;
+    color: #000;
+    font: 600 25px 'Caveat';
+    background-color: rgba(155, 177, 112, 0.568);
+    box-shadow: rgba(255, 255, 255, 0.5) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 5px;
+    margin-bottom: 7px;
+    padding: 7px;
 }
