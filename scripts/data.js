@@ -25,10 +25,13 @@ const dataHandler = () => {
         localStorage.setItem('DB', JSON.stringify(LS));
     }
 
+    
+
+
     const getExistsPosts = () => {
         return LS.posts;
     }
-
+    
     return { createPost, createComment, getExistsPosts };
 }
 

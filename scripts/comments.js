@@ -2,6 +2,9 @@ const commentHandler = (post, id, comments) => {
     const commentContainer = document.createElement('div');
     const showCommentsBtn = document.createElement('button');
     const allComments = document.createElement('div');
+    const commentsTitle = document.createElement('div');
+    commentsTitle.classList.add('none');
+    commentsTitle.classList.add('commentsTitle');
 
     const renderShowButton = () => {
         showCommentsBtn.innerHTML = 'show comments';
@@ -27,12 +30,11 @@ const commentHandler = (post, id, comments) => {
     }
 
     const renderFormInput = () => {
-        const commentInput = document.createElement('input');
-        commentInput.classList.add('commentInput');
-        commentContainer.appendChild(commentInput);
-
         allComments.classList.add('comments');
         commentContainer.appendChild(allComments);
+
+        commentsTitle.innerHTML = 'Comments:';
+        allComments.appendChild(commentsTitle);
 
         const checkIsEmpty = () => {
             const isDisabled = !(commentInput.value?.length);
@@ -43,6 +45,10 @@ const commentHandler = (post, id, comments) => {
             commentInput.value = '';
             addComment.setAttribute("disabled", false);
         }
+
+        const commentInput = document.createElement('input');
+        commentInput.classList.add('commentInput');
+        commentContainer.appendChild(commentInput);
 
         commentInput.addEventListener('keyup', checkIsEmpty);
 
@@ -73,9 +79,17 @@ const commentHandler = (post, id, comments) => {
         allComments.appendChild(comment);
     }
 
+    const renderCommentsTitle = () => {
+
+        if (comments.length > 0) {
+            commentsTitle.classList.remove('none');
+        }
+    }
+
     const renderComment = (value) => {
         render(value);
         DB.createComment(id, value);
+        commentsTitle.classList.remove('none');
     }
 
     const renderExistComments = () => {
@@ -84,6 +98,7 @@ const commentHandler = (post, id, comments) => {
         });
     }
 
+    renderCommentsTitle();
     renderCommentForm();
     renderExistComments();
 }
